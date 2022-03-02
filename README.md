@@ -1,38 +1,16 @@
+## Для запуска проекта:
 
-### Set port
-.env
-```
-PORT=8081
-```
-
-## Note:
-Open `src/services/auth-header.js` and modify `return` statement for appropriate back-end (found in the tutorial).
-
-```js
-export default function authHeader() {
-  const user = JSON.parse(localStorage.getItem('user'));
-
-  if (user && user.accessToken) {
-    // return { Authorization: 'Bearer ' + user.accessToken }; // for Spring Boot back-end
-    return { 'x-access-token': user.accessToken };             // for Node.js Express back-end
-  } else {
-    return {};
-  }
-}
-```
-
-## Project setup
-
-In the project directory, you can run:
-
+Установить все зависимости:
 ```
 npm install
 ```
 
-or
-
-### Compiles and hot-reloads for development
-
+### Запуск проекта
 ```
 npm start
+```
+
+### Локальный порт для запуска в файле .env
+```
+PORT=5000
 ```
