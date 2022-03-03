@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-import UserService from "../services/user.service";
+import DataService from "../services/dataService";
 
 export default class Home extends Component {
   constructor(props) {
@@ -11,7 +10,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    UserService.getPublicContent().then(
+      DataService.getContent().then(
       response => {
         console.log(response.data)
 

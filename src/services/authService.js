@@ -5,18 +5,15 @@ class AuthService {
   login(username, password) {
     return axios.post(API_URL, {username, password})
       .then(response => {
-          console.log(response.data)
           localStorage.setItem("accessToken", response.data.access);
+          localStorage.setItem("refreshToken", response.data.refresh);
         return response.data;
       });
   }
 
   logout() {
     localStorage.removeItem("accessToken");
-  }
-
-  getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));
+    localStorage.removeItem("refreshToken");
   }
 }
 
