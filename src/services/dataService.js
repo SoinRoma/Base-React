@@ -7,9 +7,8 @@ class DataService {
         if (token) {
             return axios.get(API_URL, {headers: {Authorization: 'Bearer ' + token}});
         } else {
-            return axios.get(API_URL, {headers: {Authorization: 'Bearer ' + token}});
+            window.location.replace('/login');
         }
-
     }
 }
 
