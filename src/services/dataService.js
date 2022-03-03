@@ -1,11 +1,16 @@
 import axios from 'axios';
-import authHeader from './auth-header';
 const API_URL = 'https://testtwilio.uzdevelop.ru/api/v1/twilio/contact/list/';
 
 class DataService {
-  getContent() {
-    return axios.get(API_URL, { headers: authHeader() });
-  }
+    getContent() {
+        let token = localStorage.getItem('accessToken');
+        if (token) {
+            return axios.get(API_URL, {headers: {Authorization: 'Bearer ' + token}});
+        } else {
+            return axios.get(API_URL, {headers: {Authorization: 'Bearer ' + token}});
+        }
+
+    }
 }
 
 export default new DataService();

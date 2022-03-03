@@ -6,6 +6,7 @@ import "./App.css";
 import AuthService from "./services/authService";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
 
 class App extends Component {
@@ -37,9 +38,9 @@ class App extends Component {
                 <Link to={"/login"} className="nav-link">
                   Войти
                 </Link>
-                <a href="/login" className="nav-link" onClick={this.logOut}>
+                <Link to={"/login"} className="nav-link" onClick={this.logOut}>
                   Выйти
-                </a>
+                </Link>
               </li>
             </div>
         </nav>
@@ -50,7 +51,9 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
           </Switch>
         </div>
+        <AuthVerify logOut={this.logOut}/>
       </div>
+
     );
   }
 }
