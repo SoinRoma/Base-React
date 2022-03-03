@@ -12,17 +12,16 @@ const parseJwt = (token) => {
 class AuthVerify extends Component {
     constructor(props) {
         super(props);
-
         const token = localStorage.getItem("accessToken");
         if (token) {
             const decodedJwt = parseJwt(token);
-            if (decodedJwt === null) {
+            if (!decodedJwt) {
+                // Продумать логику если срок жизни токена истёк
                 props.logOut();
             }
         } else {
             props.logOut();
         }
-
     }
 
     render() {

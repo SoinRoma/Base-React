@@ -9,7 +9,7 @@ const required = value => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+        Обязательно к заполнению
       </div>
     );
   }
@@ -83,20 +83,9 @@ export default class Login extends Component {
     return (
       <div className="col-md-12">
         <div className="card card-container">
-          <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-            alt="profile-img"
-            className="profile-img-card"
-          />
-
-          <Form
-            onSubmit={this.handleLogin}
-            ref={c => {
-              this.form = c;
-            }}
-          >
+          <Form onSubmit={this.handleLogin} ref={c => {this.form = c;}}>
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">Логин</label>
               <Input
                 type="text"
                 className="form-control"
@@ -108,7 +97,7 @@ export default class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Пароль</label>
               <Input
                 type="password"
                 className="form-control"
@@ -123,10 +112,8 @@ export default class Login extends Component {
               <button
                 className="btn btn-primary btn-block"
                 disabled={this.state.loading}>
-                {this.state.loading && (
-                  <span className="spinner-border spinner-border-sm"></span>
-                )}
-                <span>Login</span>
+                {this.state.loading && (<span className="spinner-border spinner-border-sm" />)}
+                <span>Войти</span>
               </button>
             </div>
 
