@@ -1,4 +1,4 @@
-<h1 align="center">React - Auth</h1>
+<h1 align="center">React - Authentication</h1>
 
 ## Описание
 Базовая авторизация на React. Используется логин и пароль для входа. 
