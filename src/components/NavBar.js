@@ -5,10 +5,11 @@ import {HOME_ROUTE} from "../routes/consts";
 import {observer} from "mobx-react-lite";
 
 const NavBar = observer(() => {
-    const {auth} = useContext(Context);
+    const {auth, users} = useContext(Context);
 
     const logout = () => {
         auth.setIsAuth(false);
+        users.setUsers([]);
         localStorage.removeItem('refresh_token');
         localStorage.removeItem('access_token');
     }
