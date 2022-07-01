@@ -3,9 +3,10 @@ import {Context} from "../index";
 import {HOME_ROUTE} from "../routes/consts";
 import {useNavigate} from 'react-router-dom';
 import {login} from "../http/AuthService";
+import {observer} from "mobx-react-lite";
 
 
-const Login = () => {
+const Login = observer(() => {
 
     const {auth} = useContext(Context);
     const navigate = useNavigate();
@@ -18,11 +19,14 @@ const Login = () => {
             e.preventDefault();
             await login(username, password);
             auth.setIsAuth(true);
+            auth.setLoading(true);
             if (localStorage.getItem('access_token')){
                 navigate(HOME_ROUTE);
             }
         } catch (e) {
             alert(e.response.data.message);
+        } finally {
+            auth.setLoading(false);
         }
     }
 
@@ -62,6 +66,6 @@ const Login = () => {
             </div>
         </div>
     );
-};
+});
 
 export default Login;
