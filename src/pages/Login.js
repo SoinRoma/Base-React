@@ -40,6 +40,7 @@ const Login = observer(() => {
                             type="text"
                             className="form-control"
                             id="username"
+                            placeholder="Логин..."
                             value={username}
                             onChange={e => setUsername(e.target.value)}
                         />
@@ -50,6 +51,7 @@ const Login = observer(() => {
                             type="password"
                             className="form-control"
                             id="password"
+                            placeholder="Пароль..."
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                         />
