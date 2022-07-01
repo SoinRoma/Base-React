@@ -20,7 +20,7 @@ const Home = observer(() => {
             <NavBar/>
             <div className="container ">
                 <div className="card pt-3 pb-5 px-2">
-                    <h3>Список контактов</h3>
+                    <h3 className="text-uppercase">Список контактов</h3>
                     {users.getUsers.map(user =>
                         <p key={user.id}>
                             {user.client_name}
