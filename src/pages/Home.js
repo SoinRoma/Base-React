@@ -6,11 +6,11 @@ import {observer} from "mobx-react-lite";
 
 const Home = observer(() => {
 
-    const {contact} = useContext(Context);
+    const {users} = useContext(Context);
 
     useEffect(() => {
         fetchContacts().then(data => {
-            contact.setContacts(data.results);
+            users.setUsers(data.results);
         })
         // eslint-disable-next-line
     }, []);
@@ -21,9 +21,9 @@ const Home = observer(() => {
             <div className="container ">
                 <div className="card pt-3 pb-5 px-2">
                     <h3>Список контактов</h3>
-                    {contact.contacts.map(cont =>
-                        <p key={cont.id}>
-                            {cont.client_name}
+                    {users.getUsers.map(user =>
+                        <p key={user.id}>
+                            {user.client_name}
                         </p>
                     )}
                 </div>

@@ -7,7 +7,7 @@ import {login} from "../http/AuthService";
 
 const Login = () => {
 
-    const {user} = useContext(Context);
+    const {auth} = useContext(Context);
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -17,7 +17,7 @@ const Login = () => {
         try {
             e.preventDefault();
             await login(username, password);
-            user.setIsAuth(true);
+            auth.setIsAuth(true);
             if (localStorage.getItem('access_token')){
                 navigate(HOME_ROUTE);
             }

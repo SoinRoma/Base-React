@@ -6,15 +6,15 @@ import {Context} from "../index";
 import {observer} from "mobx-react-lite";
 
 const AppRouter = observer (() => {
-    const {user} = useContext(Context);
+    const {auth} = useContext(Context);
     // Если авторизован то по умолчанию выбирается главная страница иначе логин
     let route;
     let token = localStorage.getItem('access_token');
     if(token){
-        user.setIsAuth(true);
+        auth.setIsAuth(true);
     }
 
-    if (user.isAuth){
+    if (auth.isAuth){
         route = <Route path="*" element={<Navigate to={HOME_ROUTE} />}/>;
     } else {
         route = <Route path="*" element={<Navigate to={AUTH_ROUTE} />}/>;
@@ -23,7 +23,7 @@ const AppRouter = observer (() => {
     return (
         <Routes>
 
-            {user.isAuth && authRoutes.map(({path, Component}) =>
+            {auth.isAuth && authRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={<Component/>} exact/>
             )}
 

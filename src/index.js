@@ -10,7 +10,7 @@ import ContactStore from "./store/ContactStore";
 export const Context = createContext(null);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Context.Provider value={{user: new UserStore(), contact: new ContactStore()}}>
+    <Context.Provider value={{auth: new UserStore(), users: new ContactStore()}}>
         <App />
     </Context.Provider>
 );
