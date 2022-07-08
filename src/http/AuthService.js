@@ -8,14 +8,15 @@ export const login = async (username, password) => {
         localStorage.setItem('refresh_token', data.refresh);
         localStorage.setItem('access_token', data.access);
     } catch (e) {
-        alert(e);
+        alert(`Неправильный логин или пароль. Код ошибки: ${e.response.status}`);
     }
 }
 
 export const checkAuth = async () => {
     try{
-        const {data} = await axios.get(`${process.env.REACT_APP_API_URL}api/v1/token/`);
-        localStorage.setItem('token', data.token);
+        let refresh = localStorage.getItem('refresh_token');
+        const {data} = await axios.post(`${process.env.REACT_APP_API_URL}api/v1/token/refresh/`, {refresh});
+        localStorage.setItem('access_token', data.access);
     } catch (e) {
         alert(e);
     }

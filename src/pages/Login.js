@@ -24,7 +24,7 @@ const Login = observer(() => {
                 navigate(HOME_ROUTE);
             }
         } catch (e) {
-            alert(e.response.data.message);
+            alert(`Неправильный логин или пароль. Код ошибки: ${e.response.status}`);
         } finally {
             auth.setLoading(false);
         }
