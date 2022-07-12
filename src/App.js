@@ -11,12 +11,14 @@ const App = observer (() => {
 
     useEffect(() => {
         if(localStorage.getItem('refresh_token')){
+            users.setIsLoading(true);
             checkAuth().then((data) => {
                 if (data.response) {
                     auth.setIsAuth(false);
                 } else {
                     auth.setIsAuth(true);
                 }
+                users.setIsLoading(false);
             });
         } else {
             auth.setIsAuth(false);
@@ -25,6 +27,10 @@ const App = observer (() => {
         }
         // eslint-disable-next-line
     }, [])
+
+    if(users._isLoading){
+        return <div />
+    }
 
     return (
         <BrowserRouter>
