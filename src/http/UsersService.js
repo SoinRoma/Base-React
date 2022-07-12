@@ -1,7 +1,7 @@
-import {$authHost} from './index';
+import {$api_token} from './index';
 
 export const fetchContacts = async () => {
-    const {data} = await $authHost.get('api/v1/twilio/contact/list/');
+    const {data} = await $api_token.get('api/v1/twilio/contact/list/');
     return data;
 }
 

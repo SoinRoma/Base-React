@@ -11,14 +11,13 @@ const App = observer (() => {
 
     useEffect(() => {
         if(localStorage.getItem('refresh_token')){
-            checkAuth();
-            if (localStorage.getItem('access_token')){
-                auth.setIsAuth(true);
-            } else {
-                auth.setIsAuth(false);
-                users.setUsers([]);
-                logout();
-            }
+            checkAuth().then((data) => {
+                if (data.response) {
+                    auth.setIsAuth(false);
+                } else {
+                    auth.setIsAuth(true);
+                }
+            });
         } else {
             auth.setIsAuth(false);
             users.setUsers([]);

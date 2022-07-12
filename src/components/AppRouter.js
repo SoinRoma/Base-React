@@ -9,7 +9,7 @@ const AppRouter = observer (() => {
     const {auth} = useContext(Context);
     // Если авторизован то по умолчанию выбирается главная страница иначе логин
     let route;
-    let token = localStorage.getItem('access_token');
+    let token = localStorage.getItem('refresh_token');
     if(token){
         auth.setIsAuth(true);
     }
