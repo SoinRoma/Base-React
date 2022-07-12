@@ -15,6 +15,7 @@ const Login = observer(() => {
 
 
     const login_btn = async (e) => {
+        e.preventDefault();
         try {
             await login(username, password);
             if (localStorage.getItem('access_token')){
@@ -55,7 +56,6 @@ const Login = observer(() => {
                     <div className="form-group mt-4 text-center">
                         <button
                             className="btn btn-primary btn-block"
-                            type="button"
                             onClick={login_btn}
                         >
                             Войти
