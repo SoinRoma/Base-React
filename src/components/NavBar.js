@@ -3,15 +3,15 @@ import {Context} from "../index";
 import {NavLink} from "react-router-dom";
 import {HOME_ROUTE} from "../routes/consts";
 import {observer} from "mobx-react-lite";
+import {logout} from "../http/AuthService";
 
 const NavBar = observer(() => {
     const {auth, users} = useContext(Context);
 
-    const logout = () => {
+    const logout_btn = () => {
         auth.setIsAuth(false);
         users.setUsers([]);
-        localStorage.removeItem('refresh_token');
-        localStorage.removeItem('access_token');
+        logout();
     }
 
     return (
@@ -21,7 +21,7 @@ const NavBar = observer(() => {
                 <nav className="ml-auto">
                     <button
                         className="btn btn-dark"
-                        onClick={() => logout()}
+                        onClick={() => logout_btn()}
                     >
                         Выйти
                     </button>

@@ -16,17 +16,13 @@ const Login = observer(() => {
 
     const login_btn = async (e) => {
         try {
-            e.preventDefault();
             await login(username, password);
-            auth.setIsAuth(true);
-            auth.setLoading(true);
             if (localStorage.getItem('access_token')){
+                auth.setIsAuth(true);
                 navigate(HOME_ROUTE);
             }
         } catch (e) {
             alert(`Неправильный логин или пароль. Код ошибки: ${e.response.status}`);
-        } finally {
-            auth.setLoading(false);
         }
     }
 
@@ -59,6 +55,7 @@ const Login = observer(() => {
                     <div className="form-group mt-4 text-center">
                         <button
                             className="btn btn-primary btn-block"
+                            type="button"
                             onClick={login_btn}
                         >
                             Войти
