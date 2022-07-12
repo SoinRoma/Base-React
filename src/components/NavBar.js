@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import {HOME_ROUTE} from "../routes/consts";
 import {observer} from "mobx-react-lite";
 import {logout} from "../http/AuthService";
+import "../assets/css/style.css";
 
 const NavBar = observer(() => {
     const {auth, users} = useContext(Context);
@@ -16,11 +17,11 @@ const NavBar = observer(() => {
 
     return (
         <div className="navbar-store">
-            <div className="container d-flex justify-content-between mt-3 mb-3">
-                <NavLink className="text-decoration-none text-black" to={HOME_ROUTE}>Главная</NavLink>
+            <div className="container d-flex justify-content-between align-items-center py-2 mb-3">
+                <NavLink className="text-decoration-none text-white" to={HOME_ROUTE}>Главная</NavLink>
                 <nav className="ml-auto">
                     <button
-                        className="btn btn-dark"
+                        className="btn btn-light"
                         onClick={() => logout_btn()}
                     >
                         Выйти
