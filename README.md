@@ -20,21 +20,21 @@
 ### Используемые технологии
 ![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)
 
-### Запуск проекта для Windows
+### Запуск проекта:
 
-1-Запустить проект в WebStorm
+1. Запустить проект в IDE (WebStorm)
 
-2 - Установить все зависимости(IDE сам придложит).
+2. Установить все зависимости(IDE сам придложит).
 ```
 npm install
 ```
 
-3 - Скопировать .env
+3. Скопировать .env
 ```
 copy example.env .env
 ```
 
-4 - Запуск проекта
+4. Запуск проекта
 ```
 npm start
 ```
