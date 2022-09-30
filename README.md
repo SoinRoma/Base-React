@@ -38,3 +38,8 @@ copy example.env .env
 ```
 npm start
 ```
+
+5. Деплой приложения в Github Pages
+```
+npm run deploy
+```
